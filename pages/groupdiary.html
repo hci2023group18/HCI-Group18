@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhật ký nhóm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/groupdiary.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Thêm Font Awesome cho biểu tượng Back -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+
+
+        <!-- Nút quay lại -->
+        <div class="back-button">
+            <a href="/index.html" class="btn btn-light">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
+        </div>
+
+        <!-- Các Tab -->
+        <div class="tabs">
+            <button class="tab-button" onclick="openTab(event, 'Week1')">Week 1</button>
+            <button class="tab-button" onclick="openTab(event, 'Week2')">Week 2</button>
+            <button class="tab-button" onclick="openTab(event, 'Week3')">Week 3</button>
+        </div>
+
+        <!-- Nội dung từng Tab -->
+        <div id="Week1" class="tab-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã số sinh viên</th>
+                        <th>Họ tên</th>
+                        <th>Công việc được giao</th>
+                        <th>Kết quả</th>
+                        <th>Tiến độ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>23130056</td>
+                        <td>Phạm Hữu Đạt</td>
+                        <td>Làm giao diện đơn giản về một web bán bánh ngọt, làm các menu Group-Diary...</td>
+                        <td>Đang triển khai</td>
+                        <td>70%</td>
+                    </tr>
+                    <!-- Thêm nhiều dòng như vậy cho các sinh viên khác -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="Week2" class="tab-content">
+            <!-- Bảng tương tự cho Week 2 -->
+        </div>
+
+        <div id="Week3" class="tab-content">
+            <!-- Bảng tương tự cho Week 3 -->
+        </div>
+    </div>
+
+    <script src="/js/groupdiary.js"></script>
+</body>
+</html>

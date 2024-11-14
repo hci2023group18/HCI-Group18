@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeryPage</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+</head>
+<body>
+    <div class="header">
+        <div class="announcement-bar___content">
+            <a href="#">Get free delivery when you spend over 30 dollars - SHOP NOW</a>
+        </div>
+        <div class="group-header">
+            <div class="icon_menu_hamburger">
+                <div class="icon_hamburger" onclick="toggleMenu()"><button><i class="bi bi-list" style="font-size: 24px; cursor: pointer;"></i></button></div>
+                <a href="#"><div class="image_logo"><img src="//theflourpot.co.uk/cdn/shop/files/Flour-Pot-Bakery-Logo.png?crop=center&height=300&v=1695159129&width=300" alt="logobakery"></div></a>
+            </div>
+            <div class="nav_bar">
+                <a href="#"><div class="instagram icon_noimportant"><i class="bi bi-instagram" style="font-size:24px"></i></div></a>
+                <a href="#"><div class="twitter icon_noimportant"><i class="fa fa-twitter" style="font-size:26px"></i></div></a>
+                <a href="#"><div class="facebook icon_noimportant"><i class="fa fa-facebook-square" style="font-size:24px"></i></div></a>
+                <a href="#"><div class="youtube icon_noimportant"><i class="fa fa-youtube-square" style="font-size:24px"></i></div></a>
+                <a href="#"><div class="search icon_important"><button><i class="fa fa-search" style="font-size: 24px;"></i></button></div></a>
+                <a href="/pages/login.html"><div class="user icon_important"><button><i class="fa fa-user-circle-o" style="font-size:24px"></i></button></div></a>
+                <a href="#"><div class="shop icon_important"><button><span class="glyphicon glyphicon-shopping-cart" style="font-size: 24px;"></span></button></div></a>
+            </div>
+        </div>
+    </div>
+        <div class="image-gallery">
+            <!-- Ảnh chính -->
+            <div class="image-container">
+              <img id="main-image" src="https://cdn.tgdd.vn/Files/2021/03/09/1333700/cac-loai-banh-ngot-duoc-yeu-thich-nhat-tai-viet-nam-202103090937443232.jpg" alt="Image 1" />
+              <div class="image-overlay">
+                <h1 style="font-weight: bold;">FREE HOME DELIVERY WHEN YOU SPEND OVER 30 DOLLARS </h1>
+                <p>Cosy up at home this Autumn and tuck into your favourites pastries, sweets & treats. Get free home delivery when you spend 30 dollars or over.</p>
+                <button>Shop Autumn</button>
+              </div>
+            </div>
+            <!-- Chấm tròn để điều khiển ảnh -->
+            <div class="dots">
+              <span class="dot" onclick="changeImage(1)"></span>
+              <span class="dot" onclick="changeImage(2)"></span>
+              <span class="dot" onclick="changeImage(3)"></span>
+              <span class="dot" onclick="changeImage(4)"></span>
+              <span class="dot" onclick="changeImage(5)"></span>
+            </div>
+    </div>   
+
+
+    <!--Đây là phần menu-->
+    <div id="menu" class="menu">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <ul class="menu-items">
+          <li>Project</li>
+          <li><a href="/pages/groupdiary.html">Group-Diary</a></li>
+          <li>Contact Us</li>
+          <li>Locations</li>
+          <li>Register / Login</li>
+        </ul>
+    </div>
+
+</body>
+<script src="/js/script.js"></script>
+</html>
