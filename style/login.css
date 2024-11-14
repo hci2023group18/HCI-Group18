@@ -1,0 +1,339 @@
+.announcement-bar___content {
+    background-color: #ca7f5c;
+    text-align: center;
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.announcement-bar___content a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1rem;
+}
+
+.announcement-bar___content a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.announcement-bar___content a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.group-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+}
+
+.header {
+    position: relative;
+    top: 0;
+    z-index: 10;
+    border: 0.1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+}
+
+.image-gallery {
+    position: relative;
+    margin-top: 20px;
+    z-index: 5;
+}
+
+.image_logo img {
+    width: 8rem;
+    height: 7rem;
+}
+
+.nav_bar {
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+}
+
+.icon_menu_hamburger {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav_bar {
+    padding-top: 2.4rem;
+    gap: 3rem;
+}
+
+.image_logo {
+    padding: 0;
+}
+
+.icon_hamburger {
+    padding-top: 2.4rem;
+}
+
+.icon_hamburger button {
+    border: none;
+    background-color: #ffffff;
+}
+
+.icon_hamburger button:hover {
+    background-color: rgba(203, 203, 203, 0.5);
+    border-radius: 50%;
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
+}
+
+.nav_bar a {
+    color: inherit;
+}
+
+.icon_important button {
+    border: none;
+    background-color: #ffffff;
+    height: 4rem;
+    width: 4rem;
+}
+
+.icon_important button:hover {
+    background-color: rgba(203, 203, 203, 0.5);
+    border-radius: 50%;
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
+}
+
+.icon_noimportant {
+    padding-top: 0.8rem;
+}
+
+/* Style cho overlay mờ */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: none; /* Ẩn overlay ban đầu */
+}
+
+/* Style cho thanh tìm kiếm */
+.search-bar {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 500px;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Ẩn thanh tìm kiếm ban đầu */
+    z-index: 11; /* Hiển thị trên overlay */
+    text-align: center;
+}
+
+.search-bar input[type="text"] {
+    width: 80%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    background-color: #ca7f5c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.search-bar button:hover {
+    background-color: #a56244;
+}
+
+/* phần login */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.login-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-container button {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #333;
+}
+
+.login-links {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.login-links a {
+    color: #ca7f5c;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Cấu hình chung cho Footer */
+footer {
+    background-color: #f9f6f1; 
+    padding: 3rem 0;
+    color: #333;
+}
+
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap; /* Cho phép các phần tử trong footer xuống hàng khi cần */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Các phần trong footer */
+.footer-about,
+.footer-browse,
+.footer-newsletter {
+    flex: 1 1 30%; /* Mỗi phần sẽ chiếm 30% chiều rộng */
+    min-width: 200px;
+}
+
+/* Phần About */
+.footer-about h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    color: #555; /* Màu chữ đen sáng hơn */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Phần Browse - Các đường link */
+.footer-browse h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-browse .browse-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia thành 2 cột */
+    gap: 0.5rem 2rem;
+}
+
+.footer-browse a {
+    color: #555; /* Màu chữ đen sáng hơn */
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-browse a:hover {
+    color: #ca7f5c; /* Màu gốc khi hover */
+    text-decoration: underline;
+}
+
+/* Phần Newsletter */
+.footer-newsletter h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-newsletter p {
+    margin: 1rem 0;
+    color: #555; /* Màu chữ đen sáng hơn */
+}
+
+.footer-newsletter input[type="email"] {
+    padding: 0.8rem;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f3f0e6; /* Màu nền thanh email (sáng hơn nền footer) */
+    color: #444;
+    transition: background-color 0.3s;
+}
+
+.footer-newsletter input[type="email"]:focus {
+    background-color: #ffffff; /* Màu trắng khi click vào */
+    outline: none;
+}
+
+/* Điều chỉnh responsive để các cột thu nhỏ trên màn hình nhỏ */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Chuyển sang cột khi màn hình nhỏ */
+        text-align: center;
+    }
+
+    .footer-about,
+    .footer-browse,
+    .footer-newsletter {
+        flex: 1 1 100%; /* Mỗi phần chiếm 100% chiều rộng */
+        margin-bottom: 2rem; /* Tạo khoảng cách giữa các phần */
+    }
+
+    .footer-browse .browse-links {
+        justify-content: center;
+    }
+}

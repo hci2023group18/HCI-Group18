@@ -1,0 +1,253 @@
+.announcement-bar___content {
+    background-color: #ca7f5c;
+    text-align: center;
+    color: #ffffff;
+    padding: 1rem;
+}
+.announcement-bar___content a {
+    text-decoration: none; 
+    color: inherit; 
+    font-size: 1rem;
+}
+.announcement-bar___content a:active {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.announcement-bar___content a:hover {
+    text-decoration: none;
+    color: inherit; 
+}
+body{
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+.group-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+}
+.header{
+  position: relative;
+  top: 0;
+  z-index: 10;
+}
+.image-gallery {
+  position: relative;
+  margin-top: 20px;
+  z-index: 5;
+}
+.image_logo img{
+    width: 8rem;
+    height: 7rem;
+}
+.nav_bar{
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+}
+.icon_menu_hamburger{
+    display: flex;
+    gap: 3rem;
+}
+.nav_bar{
+    padding-top: 2.4rem;
+    gap: 3rem;
+}
+.image_logo{
+    padding: 0;
+}
+.icon_hamburger{
+    padding-top: 2.4rem;
+}
+.icon_hamburger button{
+    border: none;
+    background-color: #ffffff;
+}
+.icon_hamburger button:hover{
+    background-color: rgba(203, 203, 203, 0.5);
+    border-radius: 50%;
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
+}
+.nav_bar a{
+    color: inherit;
+}
+.icon_important button{
+    border: none;
+    background-color: #ffffff;
+    height: 4rem;
+    width: 4rem;
+}
+.icon_important button:hover{
+    background-color: rgba(203, 203, 203, 0.5);
+    border-radius: 50%;
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
+}
+.icon_noimportant{
+    padding-top: 0.8rem;
+}
+/* Bao bọc toàn bộ */
+.image-gallery {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Container ảnh */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  background-color: #f0f0f0;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  object-fit: cover;
+}
+
+/* Lớp phủ trên ảnh */
+.image-overlay {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translate(0%, 0%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.image-overlay h1 {
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.image-overlay p {
+  font-size: 13px;
+  margin: 20px 0;
+}
+
+.image-overlay button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #ff7f50;
+  color: white;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+}
+
+.image-overlay button:hover {
+  background-color: #ff4500;
+}
+
+/* Các chấm tròn */
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot:hover {
+  background-color: #ff7f50;
+}
+
+.dot.active {
+  background-color: #ff4500;
+}
+
+#main-image {
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out; 
+  opacity: 1; 
+}
+.image-container img {
+  transition: opacity 1s ease-in-out;
+}
+.product{
+  padding-left: 3rem;
+}
+.product h1{
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 25%;
+  height: 100vh; 
+  background-color: #18181b;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  z-index: 1000;
+  opacity: 0; /* Độ mờ ban đầu là 0 */
+  transition: right 0.7s ease, opacity 0.7s ease; /* Thêm hiệu ứng chuyển động */
+}
+.menu.show {
+  left: 0; /* Đưa menu vào màn hình */
+  opacity: 1; /* Hiển thị menu với độ mờ hoàn toàn */
+}
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  color: #343434;
+}
+.menu-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-items li {
+  padding: 10px 0;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  border-top: 1px solid #34343a;
+  transition: color 0.3s;
+}
+.menu-items li:hover{
+  color: #c5c5c5;
+}
+.menu a{
+  text-decoration: none;
+  color: white;
+  text-decoration: none; /* Không có gạch dưới */
+  transition: none;
+}
+.menu a:hover{
+    color: inherit; /* Giữ nguyên màu của liên kết khi hover */
+    text-decoration: none; /* Không có gạch dưới khi hover */
+}
