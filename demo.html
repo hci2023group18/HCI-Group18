@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/style/demo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+</head>
+<body>
+
+    <!--Đây là phần menu-->
+    <div id="menu" class="menu">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <ul class="menu-items">
+          <li><a href="project.html">Project</a></li>
+          <li><a href="groupdiary.html">Group-Diary</a></li>
+          <li>Contact Us</li>
+          <li>Locations</li>
+          <li><a href="login.html">Register / Login</a></li>
+        </ul>
+    </div>
+
+    <!-- Phần thông báo trên cùng -->
+    <div class="top-banner">
+        Get free delivery when you spend over £30 - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+
+    <!-- Phần header chính -->
+    <header class="header">
+        <div class="left">
+        <!-- Nút menu -->
+        <div class="icon_hamburger" onclick="toggleMenu()">
+            <i class="bi bi-list"
+              style="font-size: 24px; cursor: pointer;"></i>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html"><img src="assets/image/MamMamCake.webp" alt="The Flour Pot Bakery Logo"></a>
+        </div>
+    </div>
+        <!-- Icon mạng xã hội và chức năng -->
+        <div class="header-icons">
+            <a href="#" onclick="toggleSearchBar(event)">
+                <div class="search icon_important" title="Search"><button><i class="fa fa-search" style="font-size: 24px;"></i></button>
+                </div>
+              </a>
+               <!-- Overlay làm mờ nền -->
+               <div class="overlay" id="overlay" onclick="toggleSearchBar(event)"></div>
+      
+               <!-- Thanh tìm kiếm ẩn ban đầu -->
+               <div class="search-bar" id="searchBar">
+                   <input type="text" id="searchInput" placeholder="Type to search..." oninput="searchByTitle()">
+                   <button onclick="toggleSearchBar(event)">Close</button>
+               </div>
+            <a href="login.html"><i class="fa fa-user-circle-o" style="font-size:24px"></i></a>
+            <a href="demo.html"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+<h2>COLLECTIONS</h2>
+    <!-- Container chính -->
+    <div class="gallery-container">
+        <!-- Card sản phẩm 1 -->
+        <div class="gallery-item">
+            <img src="assets/image/all.png" alt="Fathers Day Box">
+            <div class="gallery-title">ALL</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 1"></div>
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 2"></div>
+                <div class="extra-icons">+81</div>
+            </div>
+        </div>
+
+        <!-- Card sản phẩm 2 -->
+        <div class="gallery-item">
+            <img src="assets/image/autumn.png" alt="Gift Subscriptions">
+            <div class="gallery-title">AUTUMN AT HOME</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 3"></div>
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 4"></div>
+                <div class="extra-icons">+13</div>
+            </div>
+        </div>
+
+        <!-- Card sản phẩm 3 -->
+        <div class="gallery-item">
+            <img src="assets/image/bread.png" alt="Gifts">
+            <div class="gallery-title">BREAD</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 5"></div>
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 6"></div>
+                <div class="extra-icons">+19</div>
+            </div>
+        </div>
+
+        <!-- Card sản phẩm 4 đến 15 (sao chép và chỉnh sửa từ mẫu trên) -->
+        <div class="gallery-item">
+            <img src="assets/image/cake.png" alt="Product 4">
+            <div class="gallery-title">CELEBRATION CAKES</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 1"></div>
+                <div class="extra-icons">+4</div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/christmas.png" alt="Product 5">
+            <div class="gallery-title">CHRISTMAS</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 2"></div>
+                <div class="extra-icons">+12</div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/coffee.png" alt="Product 6">
+            <div class="gallery-title">COFFEE</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 3"></div>
+                <div class="extra-icons">+4</div>
+            </div>
+        </div>
+
+        <!-- Tạo các card sản phẩm tiếp theo từ 7 đến 15 -->
+        <div class="gallery-item">
+            <img src="assets/image/father.png" alt="Product 7">
+            <div class="gallery-title">FATHERS DAY</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 4"></div>
+                <div class="extra-icons">+6</div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/autumn.png" alt="Product 8">
+            <div class="gallery-title">GIFT SUBSCRIPTION</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 5"></div>
+                
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/gift.png" alt="Product 9">
+            <div class="gallery-title">GIFTS</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 6"></div>
+                <div class="extra-icons">+10</div>
+            </div>
+        </div>
+
+        <!-- Card sản phẩm 10 đến 15 (sao chép và điều chỉnh nội dung) -->
+        <div class="gallery-item">
+            <img src="assets/image/sp1.png" alt="Product 10">
+            <div class="gallery-title">MOST POPULAR</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 1"></div>
+                <div class="extra-icons">+14</div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/pantry.png" alt="Product 11">
+            <div class="gallery-title">PANTRY</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 2"></div>
+                <div class="extra-icons">+4</div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/pastries.png" alt="Product 12">
+            <div class="gallery-title">PASTRIES</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 3"></div>
+                <div class="extra-icons">+8</div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/savouri.png" alt="Product 13">
+            <div class="gallery-title">SAVOURIES</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 4"></div>
+                
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/summer.png" alt="Product 14">
+            <div class="gallery-title">SUMMER SPECIALS</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 5"></div>
+                <div class="extra-icons">+8</div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/image/sweet.png" alt="Product 15">
+            <div class="gallery-title">SWEETS</div>
+            <div class="icon-container">
+                <div class="icon"><img src="assets/image/people.png" alt="Profile 6"></div>
+                <div class="extra-icons">+17</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ABOUT THE FLOUR POT</h3>
+                <p>We’re an artisan Brighton bakery, with stores across Brighton, Hove and Worthing. Our team are dedicated to making lovingly handcrafted food, using traditional methods with the finest ingredients and served by people who care.</p>
+                
+            </div>
+
+            <div class="footer-section">
+                <h3>BROWSE THE FLOUR POT</h3>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Venue Hire</a></li>
+                    <li><a href="#">The Milk Shed</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Cookies & Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe for store updates and discounts.</p>
+                <form>
+                    <input type="email" placeholder="Email address">
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+            <p>Copyright © 2024, The Flour Pot Bakery.</p>
+            <button class="rewards-button">Rewards</button>
+        </div>
+    </footer>
+  </section>
+  <script src="assets/js/demo.js"></script>
+</body>
+</html>
+

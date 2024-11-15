@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Lý Dự Án</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/project.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <!-- Nút Back -->
+            <button class="back-button" onclick="window.history.back();">Back</button>
+            <h1>Trang Quản Lý Dự Án - hci-group18</h1>
+        </div>
+
+        <!-- Phần Giới Thiệu Dự Án -->
+        <div class="intro">
+            <h2>Giới Thiệu về Dự Án</h2>
+            <p>Chào mừng bạn đến với dự án của nhóm <strong>hci-group18</strong>. Dự án này được thực hiện trong khuôn khổ môn học HCI (Human-Computer Interaction), nhằm xây dựng một công cụ hỗ trợ quản lý dự án hiệu quả.</p>
+            <p>Chúng tôi đã phát triển một hệ thống giúp người dùng dễ dàng theo dõi tiến độ công việc, quản lý các yêu cầu, thiết kế giao diện và triển khai các tính năng của dự án. Mỗi phần của hệ thống đều được nhóm phát triển kỹ lưỡng để đảm bảo tính dễ sử dụng và hiện đại.</p>
+            <p>Hãy khám phá các tab bên dưới để biết thêm chi tiết về yêu cầu, thiết kế và triển khai của dự án!</p>
+        </div>
+
+        <!-- Các Tab -->
+        <div class="tabs">
+            <button class="tab-button" onclick="openTab(event, 'Requirement')">Requirement</button>
+            <button class="tab-button" onclick="openTab(event, 'Design')">Design</button>
+            <button class="tab-button" onclick="openTab(event, 'Implementation')">Implementation</button>
+        </div>
+
+        <!-- Nội dung từng Tab -->
+        <div id="Requirement" class="tab-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Chức năng</th>
+                        <th>Người thiết kế</th>
+                        <th>Người thực hiện</th>
+                        <th>Thời gian dự kiến</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Hiệu ứng với thẻ div của các bánh và tạo một nút để mua nhanh</td>
+                        <td>Phạm Hữu Đạt</td>
+                        <td>Phạm Hữu Đạt</td>
+                        <td>5 ngày</td>
+                        <td>Đang thiết kế</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Làm Menu Contact Us</td>
+                        <td>Võ Tấn Sang</td>
+                        <td>Võ Tấn Sang</td>
+                        <td>5 ngày</td>
+                        <td>Đang thiết kế</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Làm Menu Location tiệm bánh ở Nông Lâm</td>
+                        <td>Nguyễn Luân</td>
+                        <td>Nguyễn Luân</td>
+                        <td>5 ngày</td>
+                        <td>Đang thiết kế</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Làm tiếp phần Menu Collection</td>
+                        <td>Phan Duy Long</td>
+                        <td>Phan Duy Long</td>
+                        <td>5 ngày</td>
+                        <td>Đang thiết kế</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Làm tiếp phần Menu Collection click vào sẽ ra sản phẩm khác nữa</td>
+                        <td>Trần Quang Duy</td>
+                        <td>Trần Quang Duy</td>
+                        <td>5 ngày</td>
+                        <td>Đang thiết kế</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="Design" class="tab-content">
+            <h2>Ảnh thiết kế</h2>
+            <img src="design.jpg" alt="Thiết kế giao diện" class="design-img">
+        </div>
+
+        <div id="Implementation" class="tab-content">
+            <h2>Chi tiết triển khai</h2>
+            <p>Đây là phần triển khai chi tiết về các chức năng, cách sử dụng các công nghệ, công cụ trong dự án...</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Ẩn tất cả tab content
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.style.display = 'none');
+            
+            // Xóa lớp active của các nút tab
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            
+            // Hiển thị tab hiện tại
+            document.getElementById(tabName).style.display = 'block';
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Mặc định mở tab Requirement
+        document.querySelector('.tab-button').click();
+    </script>
+
+</body>
+</html>

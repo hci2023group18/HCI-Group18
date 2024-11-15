@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/style/demo1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+       <!--Đây là phần menu-->
+       <div id="menu" class="menu">
+        <ul class="menu-items">
+          <li><a href="project.html">Project</a></li>
+          <li><a href="groupdiary.html">Group-Diary</a></li>
+          <li>Contact Us</li>
+          <li>Locations</li>
+          <li><a href="login.html">Register / Login</a></li>
+          <li><a href="demo.html">Collection</a></li>
+        </ul>
+    </div>
+
+    <!-- Nút Giỏ hàng -->
+<div class="cart-icon" onclick="toggleCartPanel()">
+  <i class="fa fa-shopping-bag" style="font-size: 24px;"></i>Shopping Cart
+</div>
+<!-- Khu vực hiển thị giỏ hàng -->
+<div class="cart-panel" id="cartPanel" style="display: none;">
+  <h3>Giỏ hàng của bạn</h3>
+  <div id="cartItems">
+    <!-- Nơi hiển thị danh sách sản phẩm trong giỏ -->
+    <p>Giỏ hàng hiện đang trống</p>
+  </div>
+</div>
+
+
+<!-- Modal cho đặt hàng -->
+<!-- Modal cho đặt hàng -->
+<div id="orderModal" style="display:none;">
+  <h2>Đặt Hàng</h2>
+  <p>Sản phẩm: <span id="productName"></span></p>
+  <p>Giá: <span id="productPrice"></span></p>
+
+  <label for="quantity">Số lượng:</label>
+  <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+  <label for="address">Địa chỉ:</label>
+  <input type="text" id="address" name="address">
+
+  <label for="phone">Số điện thoại:</label>
+  <input type="text" id="phone" name="phone">
+
+  <div class="modal-actions">
+    <button class="order-action-button" onclick="submitOrder()">Mua Hàng</button>
+    <button class="order-action-button" onclick="closeOrderModal()">Đóng</button>
+    <button class="order-action-button cancel" id="cancelOrderBtn" onclick="cancelOrder()">Hủy đơn</button>
+  </div>
+</div>
+
+
+    <!-- Phần thông báo trên cùng -->
+    <div class="top-banner">
+        Get free delivery when you spend over £30 - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+
+    <!-- Phần header chính -->
+    <header class="header">
+      <div class="left">
+        <!-- Nút menu -->
+        <div class="icon_hamburger" onclick="toggleMenu()">
+            <i class="bi bi-list"
+              style="font-size: 24px; cursor: pointer;"></i>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html"><img src="assets/image/MamMamCake.webp" alt="The Flour Pot Bakery Logo"></a>
+        </div>
+    </div>
+
+        <!-- Icon mạng xã hội và chức năng -->
+        <div class="header-icons">
+          <a href="#" onclick="toggleSearchBar(event)">
+            <div class="search icon_important" title="Search"><button><i class="fa fa-search" style="font-size: 24px;"></i></button>
+            </div>
+          </a>
+           <!-- Overlay làm mờ nền -->
+           <div class="overlay" id="overlay" onclick="toggleSearchBar(event)"></div>
+  
+           <!-- Thanh tìm kiếm ẩn ban đầu -->
+           <div class="search-bar" id="searchBar">
+               <input type="text" id="searchInput" placeholder="Type to search..." onkeyup="searchProducts()">
+               <button onclick="toggleSearchBar(event)">Close</button>
+           </div>
+        </div>
+    </header>
+
+    <!-- Phần Your Cart -->
+    <div class="cart-section">
+        <h2>YOUR CART</h2>
+        <p>Your cart is currently empty.</p>
+        <p><b><a href="demo.html" target="_blank">Continue shopping</a></b></p>
+    </div>
+
+ <!-- Product Section -->
+ <section class="products">
+    <div class="product-list">
+      <div class="product-card"  onclick="selectProduct(1)">
+        <img src="assets/image/sp1.png" alt="Brighton Blackout Cake">
+        <h4>Brighton Blackout Cake</h4>
+        <p class="price">£17.95</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(2)">
+        <img src="assets/image/sp2.png" alt="Fruit Tea">
+        <h4>Vegan Burger Bun</h4>
+        <p class="price">£4.95</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(3)">
+        <img src="assets/image/sp3.png" alt="Bubble Tea">
+        <h4>Sourdough Pizza Kit</h4>
+        <p class="price">£12.95</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(4)">
+        <img src="assets/image/sp4.png" alt="Matcha Tea">
+        <h4>Brioche Burger Bun</h4>
+        <p class="price">£4.95</p>
+      </div>
+      <div class="product-list">
+      <div class="product-card" onclick="selectProduct(5)">
+        <img src="https://theflourpot.co.uk/cdn/shop/files/Flour_Pot_Sandwich_Loaf_360x.jpg?v=1700481090" alt="Milk Tea">
+        <h4>Sandwich Loaf</h4>
+        <p class="price">from £3.70</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(6)">
+        <img src="assets/image/sp6.png" alt="Fruit Tea">
+        <h4>Lemon & Blueberry Danish</h4>
+        <p class="price">£3.75</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(7)"> 
+        <img src="assets/image/sp7.png" alt="Bubble Tea">
+        <h4>Vanills Celebration Cake</h4>
+        <p class="price">£25.95</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(8)">
+        <img src="assets/image/sp8.png" alt="Matcha Tea">
+        <h4>Almond Croissant</h4>
+        <p class="price">£3.50</p>
+      </div>
+      
+    </div>
+    <div class="product-list">
+      <div class="product-card" onclick="selectProduct(9)">
+        <img src="https://theflourpot.co.uk/cdn/shop/files/The_Flour_Pot_Bakery_Pizza_Dough_360x.jpg?v=1698487863" alt="Milk Tea">
+        <h4>Sourdough Pizza Dough</h4>
+        <p class="price">£2.50</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(10)">
+        <img src="https://theflourpot.co.uk/cdn/shop/files/The_Flour_Pot_Bakery_Baguette_087bcd29-876c-4c95-8bac-e97f6f6d3459_360x.jpg?v=1698488001" alt="Fruit Tea">
+        <h4>Traditional Baguette</h4>
+        <p class="price">£2.85</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(11)"> 
+        <img src="https://theflourpot.co.uk/cdn/shop/files/The_Flour_Pot_Bakery_Ciabatta_Small_76af86d8-725c-4709-95b1-e66854acae6f_360x.jpg?v=1698487134" alt="Bubble Tea">
+        <h4>Vanills Celebration Cake</h4>
+        <p class="price">£25.95</p>
+      </div>
+      <div class="product-card" onclick="selectProduct(12)">
+        <img src="assets/image/sp8.png" alt="Matcha Tea">
+        <h4>Ciabatta Rolls</h4>
+        <p class="price">£0.95</p>
+      </div>
+    </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ABOUT THE FLOUR POT</h3>
+                <p>We’re an artisan Brighton bakery, with stores across Brighton, Hove and Worthing. Our team are dedicated to making lovingly handcrafted food, using traditional methods with the finest ingredients and served by people who care.</p>
+                
+            </div>
+
+            <div class="footer-section">
+                <h3>BROWSE THE FLOUR POT</h3>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Venue Hire</a></li>
+                    <li><a href="#">The Milk Shed</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Cookies & Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe for store updates and discounts.</p>
+                <form>
+                    <input type="email" placeholder="Email address">
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+            <p>Copyright © 2024, The Flour Pot Bakery.</p>
+            <button class="rewards-button">Rewards</button>
+        </div>
+    </footer>
+  </section>
+        <script src="assets/js/demo1.js"></script>
+    </body>
+</html>
