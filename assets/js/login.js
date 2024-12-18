@@ -23,6 +23,7 @@ const users = JSON.parse(localStorage.getItem('users')) || [];
 function showLogin() {
   document.getElementById('login-form').style.display = 'block';
   document.getElementById('register-form').style.display = 'none';
+    document.getElementById('forgot-password-form').style.display = 'none';
 }
 
 function showForgotPassword() {
