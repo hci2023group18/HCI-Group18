@@ -21,22 +21,23 @@ function toggleSearchBar(event) {
 const users = JSON.parse(localStorage.getItem('users')) || [];
 
 function showLogin() {
-    document.getElementById('login-form').style.display = 'block';
-    document.getElementById('forgot-password-form').style.display = 'none';
-    document.getElementById('register-form').style.display = 'none';
+  document.getElementById('login-form').classList.add('visible');
+  document.getElementById('forgot-password-form').classList.remove('visible');
+  document.getElementById('register-form').classList.remove('visible');
 }
 
 function showForgotPassword() {
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('forgot-password-form').style.display = 'block';
-    document.getElementById('register-form').style.display = 'none';
+  document.getElementById('login-form').classList.remove('visible');
+  document.getElementById('forgot-password-form').classList.add('visible');
+  document.getElementById('register-form').classList.remove('visible');
 }
 
 function showRegister() {
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('forgot-password-form').style.display = 'none';
-    document.getElementById('register-form').style.display = 'block';
+  document.getElementById('login-form').classList.remove('visible');
+  document.getElementById('forgot-password-form').classList.remove('visible');
+  document.getElementById('register-form').classList.add('visible');
 }
+
 
 // Xử lý đăng nhập
 function handleLogin(event) {
@@ -47,14 +48,148 @@ function handleLogin(event) {
     const user = users.find(user => user.email === email && user.password === password);
     
     if (user) {
-        alert("Login successful!");
-        // Lưu trạng thái đăng nhập hoặc chuyển trang nếu cần
-    } else {
-        alert("Invalid credentials.");
-    }
+      alert("Login successful!");
+
+      // Lưu trạng thái đăng nhập và thông tin người dùng vào localStorage
+      sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.setItem('currentUser', JSON.stringify(user)); // Lưu thông tin người dùng đã đăng nhập
+
+      // Lưu thông tin đơn hàng riêng biệt cho mỗi tài khoản
+      const userCart = getUserCart(user.email); // Lấy thông tin đơn hàng từ server hoặc database
+      sessionStorage.setItem('userCart', JSON.stringify(userCart));
+
+        displayUserCart(userCart);
+        displayUserEmail();
+
+      // Hiển thị nút logout
+      document.getElementById('logout-btn').style.display = 'block';
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('show-email').style.display = 'block';
+
+      // Chuyển hướng trang sau khi đăng nhập thành công
+      window.location.href = 'cart.html'; 
+  } else {
+      alert("Invalid credentials.");
+  }
 }
 
-// Xử lý quên mật khẩu
+function getUserCart(email) {
+  const carts = JSON.parse(localStorage.getItem('carts')) || {};
+  
+  // Nếu chưa có giỏ hàng cho email, tạo giỏ hàng trống
+  if (!carts[email]) {
+      carts[email] = [];
+      localStorage.setItem('carts', JSON.stringify(carts));
+  }
+  
+  return carts[email]; // Trả về giỏ hàng của người dùng
+}
+
+
+
+function handleLogout() {
+
+  sessionStorage.clear();
+  // Xóa thông tin đăng nhập từ sessionStorage
+  sessionStorage.removeItem('isLoggedIn');
+  sessionStorage.removeItem('currentUser');
+  sessionStorage.removeItem('userCart'); // Nếu bạn lưu thông tin đơn hàng ở đây
+
+
+   // Ẩn nút logout
+   document.getElementById('logout-btn').style.display = 'none';
+   document.getElementById('login-form').style.display = 'block';
+
+   // Quay lại trang đăng nhập
+   window.location.replace('index.html');
+  
+}
+
+// xử lý đăng ký tài khoản
+function handleRegister(event) {
+  event.preventDefault();
+  const email = document.getElementById('register-email').value;
+  const password = document.getElementById('register-password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+  const carts = JSON.parse(localStorage.getItem('carts')) || {};
+  carts[email] = []; // Gán giỏ hàng rỗng cho email
+  localStorage.setItem('carts', JSON.stringify(carts));
+
+
+  if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+  }
+
+  const existingUser = users.find(user => user.email === email);
+  if (existingUser) {
+      alert("Email is already registered.");
+      return;
+  }
+
+  const newUser = { email, password };
+  users.push(newUser);
+  localStorage.setItem('users', JSON.stringify(users));
+
+  alert("Account created successfully!");
+  showLogin();
+}
+
+function displayUserCart(cart) {
+  const cartContainer = document.getElementById('cart-container');
+  cartContainer.innerHTML = ''; // Xóa nội dung cũ của giỏ hàng
+
+  if (!cart || cart.length === 0) {
+    cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+  } else {
+      cart.forEach(item => {
+          const itemElement = document.createElement('div');
+          itemElement.classList.add('cart-item');
+          itemElement.innerHTML = `
+              <p>Item: ${item.item}</p>
+              <p>Quantity: ${item.quantity}</p>
+          `;
+          cartContainer.appendChild(itemElement);
+      });
+  }
+}
+
+// Hiển thị email khi người dùng đã đăng nhập
+function displayUserEmail() {
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Lấy thông tin người dùng từ sessionStorage
+  const emailDiv = document.getElementById('user-email');
+  emailDiv.textContent = currentUser ? currentUser.email : "Không có thông tin người dùng";
+
+  if (currentUser && currentUser.email) {
+      // Hiển thị email trong phần tử
+      emailDiv.textContent = currentUser.email;
+  } else {
+      // Nếu không có email, ẩn phần hiển thị email
+      emailDiv.textContent = "Không có thông tin người dùng";
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  checkLoginStatus();
+  displayUserEmail();
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+  const user = JSON.parse(sessionStorage.getItem('currentUser'));
+  const userCart = JSON.parse(sessionStorage.getItem('userCart'));
+
+  if (isLoggedIn && user) {
+    displayUserEmail(); // Hiển thị email người dùng
+    if (userCart) {
+      displayUserCart(userCart); // Hiển thị giỏ hàng
+    }
+    console.log('User:', user);
+    console.log('User Cart:', userCart);
+  } else {
+    console.log('No user or cart data available');
+  }
+});
+
+
 function handleForgotPassword(event) {
     event.preventDefault();
     const email = document.getElementById('forgot-email').value;
@@ -69,30 +204,32 @@ function handleForgotPassword(event) {
 }
 
 // Xử lý đăng ký tài khoản
-function handleRegister(event) {
-    event.preventDefault();
-    const email = document.getElementById('register-email').value;
-    const password = document.getElementById('register-password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
 
-    if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return;
-    }
-
-    const existingUser = users.find(user => user.email === email);
-    if (existingUser) {
-        alert("Email is already registered.");
-        return;
-    }
-
-    const newUser = { email, password };
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-
-    alert("Account created successfully!");
-    showLogin();
+function updateUserCart(email, cart) {
+  const carts = JSON.parse(localStorage.getItem('carts')) || {};
+  carts[email] = cart; // Gán giỏ hàng mới cho email
+  localStorage.setItem('carts', JSON.stringify(carts)); // Lưu lại vào localStorage
 }
+
+function addToCart(item) {
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  if (!currentUser) {
+      alert("Please log in to add items to your cart.");
+      return;
+  }
+
+  const email = currentUser.email;
+  const userCart = getUserCart(email);
+  
+  // Thêm sản phẩm mới vào giỏ hàng
+  userCart.push(item);
+  sessionStorage.setItem('userCart', JSON.stringify(userCart)); // Cập nhật sessionStorage
+  updateUserCart(email, userCart); // Cập nhật localStorage
+
+  displayUserCart(userCart);
+  alert("Item added to cart.");
+}
+
 
 
 function toggleMenu() {
@@ -132,5 +269,23 @@ function toggleMenu() {
     }
   });
   
+// Kiểm tra trạng thái đăng nhập
+function checkLoginStatus() {
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+  const logoutButton = document.getElementById('logout-btn');
+  const loginForm = document.getElementById('login-form');
+  const showEmail = document.getElementById('show-email');
+  const dangxuat = document.getElementById('dangxuat');
 
-  
+
+  if (isLoggedIn) {
+      logoutButton.style.display = 'block'; // Hiển thị nút
+      loginForm.style.display = 'none';
+      showEmail.style.display = 'block';
+      dangxuat.style.display = 'block';
+  } else {
+      logoutButton.style.display = 'none'; // Ẩn nút
+      loginForm.style.display = 'block';   // Hiển thị form đăng nhập
+  }
+}
+
