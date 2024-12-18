@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banh1</title>
+    <link rel="stylesheet" href="./assets/style/banh1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+     <!--Đây là phần menu-->
+     <div id="menu" class="menu">
+      <input type="text" placeholder="Search..." class="search-bar">
+      <ul class="menu-items">
+        <li><a href="project.html">Project</a></li>
+        <li><a href="groupdiary.html">Group-Diary</a></li>
+        <li>Contact Us</li>
+        <li>Locations</li>
+        <li><a href="login.html">Register / Login</a></li>
+        <li><a href="demo.html">Colection</a></li>
+      </ul>
+  </div>
+
+    <div class="header">
+        <div class="announcement-bar___content">
+          <a href="demo.html">Get free delivery when you spend over 30 dollars - SHOP NOW</a>
+        </div>
+        <div class="group-header">
+          <div class="icon_menu_hamburger">
+            <div class="icon_hamburger" onclick="toggleMenu()" title="Menu"><button><i class="bi bi-list"
+                  style="font-size: 24px; cursor: pointer;"></i></button></div>
+            <a href="index.html">
+              <div class="image_logo" title="MamMam Cake Bakery"><img
+                  src="assets/image/MamMamCake.webp"
+                  alt="logobakery"></div>
+            </a>
+          </div>
+          <div class="nav_bar">
+            <a href="#">
+              <div class="instagram icon_noimportant" title="Instagram"><i class="bi bi-instagram" style="font-size:24px;"></i></div>
+            </a>
+            <a href="#">
+              <div class="twitter icon_noimportant" title="Twitter"><i class="fa fa-twitter" style="font-size:26px"></i></div>
+            </a>
+            <a href="#">
+              <div class="facebook icon_noimportant" title="Facebook"><i class="fa fa-facebook-square" style="font-size:24px"></i></div>
+            </a>
+            <a href="#">
+              <div class="youtube icon_noimportant" title="Youtube"><i class="fa fa-youtube-square" style="font-size:24px"></i></div>
+            </a>
+
+            <a href="login.html">
+              <div class="user icon_important" title="Login User"><button><i class="fa fa-user-circle-o" style="font-size:24px"></i></button>
+              </div>
+            </a>
+            <a href="demo1.html">
+              <div class="shop icon_important" title="Buy"><button><span class="glyphicon glyphicon-shopping-cart"
+                    style="font-size: 24px;"></span></button></div>
+            </a>
+            <a href="cart.html">
+                <!-- Nút Giỏ hàng -->
+                <div class="cart-icon" title="Shopping cart">
+                  <i class="fa fa-shopping-bag" style="font-size: 24px;"></i>
+                  <div class="badge" id="icon-count">
+                    0
+                  </div>
+                </div>
+          </a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container mt-5">
+        <div class="product-detail">
+            <div class="product-image">
+                <img src="https://theflourpot.co.uk/cdn/shop/files/The_Flour_Pot_Bakery_Blackout_Cake_900x.jpg?v=1698487000" alt="Brighton Blackout Cake" class="main-image img-fluid">
+                <img src="https://theflourpot.co.uk/cdn/shop/files/The_Flour_Pot_Bakery_Blackout_Cake_2_900x.jpg?v=1698487000" alt="Brighton Blackout Cake Side" class="hover-image img-fluid">
+            </div>
+            <div class="product-info mt-4">
+                <h2>Brighton Blackout Cake</h2>
+                <p class="price"><strong>Price: £17.95</strong></p>
+                <p><b>Allergens:</b> GLUTEN (WHEAT), MILK, SOY, EGG</p>
+                <p><b>Description:</b> Three layers of chocolate sponge, chocolate buttercream, and a chocolate crumb sprinkled all over. Serves 10-12.</p>
+                <p><b>Ingredients:</b> Sponge (Plain flour (WHEAT GLUTEN), MILK, water, EGG, rapeseed oil, cocoa powder, bicarbonate of soda, baking powder, vanilla extract, salt), Ganache (milk chocolate (MILK, SOY), caster sugar, double cream (MILK)).</p>
+
+                <!-- Options -->
+                <div class="mt-3">
+                    <p><b>Size:</b></p>
+                    <div class="btn-group">
+                        <input type="radio" class="btn-check" name="size" id="small" value="Small" checked>
+                        <label class="btn btn-outline-dark" for="small">Small</label>
+
+                        <input type="radio" class="btn-check" name="size" id="large" value="Large">
+                        <label class="btn btn-outline-dark" for="large">Large</label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <p><b>Cut:</b></p>
+                    <select class="form-select" id="cut-option">
+                        <option value="Slice" selected>Slice</option>
+                        <option value="Unslice">Unslice</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <p><b>Quantity:</b></p>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-secondary" id="decrease">-</button>
+                        <input type="text" id="quantity" class="form-control text-center mx-2" value="1" style="width: 60px;" readonly>
+                        <button class="btn btn-outline-secondary" id="increase">+</button>
+                    </div>
+                </div>
+
+                <!-- Add to Cart -->
+                <button id="add-to-cart" class="btn btn-outline-secondary w-100 text-muted border-1 p-3" style="font-size: 16px; border-radius: 1rem;">
+                  Add to Cart
+              </button>
+            </div>
+        </div>
+    </div>
+      
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2>ABOUT THE MAMMAM CAKE</h2>
+        <p>We’re an artisan Brighton bakery, with stores across Brighton, Hove and Worthing. Our team are dedicated to
+          making lovingly handcrafted food, using traditional methods with the finest ingredients and served by people
+          who care.</p>
+      </div>
+      <div class="footer-section links">
+        <h2>BROWSE THE MAMMAM CAKE</h2>
+        <ul>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Wholesale</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Venue Hire</a></li>
+          <li><a href="#">The Milk Shed</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Cookies & Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h2>NEWSLETTER</h2>
+        <p>Subscribe for store updates and discounts.</p>
+        <input type="email" placeholder="Email address">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-links">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-tiktok"></i></a>
+      </div>
+      <p>&copy; 2024, The MamMam Cake Bakery.</p>
+    </div>
+  </footer>
+      <script src="./assets/js/banh1.js"></script>
+</body>
+</html>
