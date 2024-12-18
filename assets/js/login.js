@@ -21,21 +21,20 @@ function toggleSearchBar(event) {
 const users = JSON.parse(localStorage.getItem('users')) || [];
 
 function showLogin() {
-  document.getElementById('login-form').classList.add('visible');
-  document.getElementById('forgot-password-form').classList.remove('visible');
-  document.getElementById('register-form').classList.remove('visible');
+  document.getElementById('login-form').style.display = 'block';
+  document.getElementById('register-form').style.display = 'none';
 }
 
 function showForgotPassword() {
-  document.getElementById('login-form').classList.remove('visible');
-  document.getElementById('forgot-password-form').classList.add('visible');
-  document.getElementById('register-form').classList.remove('visible');
+  document.getElementById('login-form').style.display = 'none';
+  document.getElementById('register-form').style.display = 'none';
+  document.getElementById('forgot-password-form').style.display = 'block';
+  
 }
 
 function showRegister() {
-  document.getElementById('login-form').classList.remove('visible');
-  document.getElementById('forgot-password-form').classList.remove('visible');
-  document.getElementById('register-form').classList.add('visible');
+  document.getElementById('login-form').style.display = 'none';
+  document.getElementById('register-form').style.display = 'block';
 }
 
 
