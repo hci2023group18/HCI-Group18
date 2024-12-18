@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./assets/style/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+     <!--Đây là phần menu-->
+     <div id="menu" class="menu">
+      <input type="text" placeholder="Search..." class="search-bar">
+      <ul class="menu-items">
+        <li><a href="project.html">Project</a></li>
+        <li><a href="groupdiary.html">Group-Diary</a></li>
+        <li>Contact Us</li>
+        <li>Locations</li>
+        <li><a href="login.html">Register / Login</a></li>
+        <li><a href="demo.html">Colection</a></li>
+      </ul>
+  </div>
+
+    <div class="header">
+        <div class="announcement-bar___content">
+          <a href="demo.html">Get free delivery when you spend over 30 dollars - SHOP NOW</a>
+        </div>
+        <div class="group-header">
+          <div class="icon_menu_hamburger">
+            <div class="icon_hamburger" onclick="toggleMenu()" title="Menu"><button><i class="bi bi-list"
+                  style="font-size: 24px; cursor: pointer;"></i></button></div>
+            <a href="index.html">
+              <div class="image_logo" title="MamMamCake Bakery"><img
+                  src="assets/image/MamMamCake.webp"
+                  alt="logobakery"></div>
+            </a>
+          </div>
+          <div class="nav_bar">
+            <a href="cart.html">
+              <!-- Nút Giỏ hàng -->
+               <div class="icon-container">
+              <div class="cart-icon" title="Shopping cart">
+                  <i class="fa fa-shopping-bag" style="font-size: 24px;"></i>
+              </div>
+              <div class="badge" id="icon-count">
+                0
+              </div>
+            </div>
+            </a>
+            <a href="#">
+              <div class="instagram icon_noimportant" title="Instagram"><i class="bi bi-instagram" style="font-size:24px"></i></div>
+            </a>
+            <a href="#">
+              <div class="twitter icon_noimportant" title="Twitter" style="margin-top: 0.6rem;"><i class="fa fa-twitter" style="font-size:26px"></i></div>
+            </a>
+            <a href="#">
+              <div class="facebook icon_noimportant" title="Facebook" style="margin-top: 0.4rem;"><i class="fa fa-facebook-square" style="font-size:24px"></i></div>
+            </a>
+            <a href="#">
+              <div class="youtube icon_noimportant" title="Youtube" style="margin-top: 0.4rem;"><i class="fa fa-youtube-square" style="font-size:24px"></i></div>
+            </a>
+
+            <a href="login.html">
+              <div class="user icon_important" title="Login User"><button><i class="fa fa-user-circle-o" style="font-size:24px"></i></button>
+              </div>
+            </a>
+            <a href="demo1.html">
+              <div class="shop icon_important" title="Buy"><button><span class="glyphicon glyphicon-shopping-cart"
+                    style="font-size: 24px;"></span></button></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <h2>Your Cart</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Kích Cỡ</th>
+                    <th>Cắt</th>
+                    <th>Số Lượng</th>
+                    <th>Đơn Giá</th>
+                    <th>Tổng Giá</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Dữ liệu sẽ được thêm bằng JavaScript -->
+            </tbody>
+        </table>
+        <div class="cart-actions">
+            <p id="total-price">Tổng Giá: £0.00</p>
+            <button onclick="checkout()" class="btn btn-primary" id="checkoutButton">Checkout</button>
+        </div>
+    </div>
+    
+
+
+      
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2>ABOUT THE MAMMAM CAKE</h2>
+        <p>We’re an artisan Brighton bakery, with stores across Brighton, Hove and Worthing. Our team are dedicated to
+          making lovingly handcrafted food, using traditional methods with the finest ingredients and served by people
+          who care.</p>
+      </div>
+      <div class="footer-section links">
+        <h2>BROWSE THE MAMMAM CAKE</h2>
+        <ul>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Wholesale</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Venue Hire</a></li>
+          <li><a href="#">The Milk Shed</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Cookies & Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h2>NEWSLETTER</h2>
+        <p>Subscribe for store updates and discounts.</p>
+        <input type="email" placeholder="Email address">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-links">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-tiktok"></i></a>
+      </div>
+      <p>&copy; 2024, The MamMam Cake Bakery.</p>
+    </div>
+  </footer>
+      <script src="./assets/js/cart.js"></script>
+</body>
+</html>
