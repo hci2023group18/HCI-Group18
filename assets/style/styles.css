@@ -29,9 +29,10 @@ body{
   padding: 1.4rem 4rem;
 }
 .header{
-position: relative;
+position: sticky;
 top: 0;
 z-index: 1000;
+background-color: white;
 }
 .image-gallery {
 position: relative;
@@ -421,21 +422,8 @@ font-size: 3rem;
 .search-bar button:hover {
   background-color: #a56244;
 }
-/* Nút giỏ hàng cố định ở góc dưới phải */
-.cart-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ca7f5c;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 50px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  z-index: 1000; /* Để đảm bảo nằm trên các phần tử khác */
+.cart-icon{
+  margin-top: 0.6rem;
 }
 
 /* Panel giỏ hàng */
@@ -472,4 +460,22 @@ font-size: 3rem;
 
 .cart-panel button:hover {
   background-color: #a56244;
+}
+button a {
+  text-decoration: none; /* Loại bỏ gạch chân */
+  color: inherit; /* Đảm bảo màu văn bản kế thừa từ button */
+}
+button a:hover {
+  color: #fff;
+  text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+}
+.badge {
+  position: absolute;
+  top: 8rem;
+  right: 2.5rem;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
