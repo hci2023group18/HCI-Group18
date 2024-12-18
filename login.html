@@ -1,291 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeryPage</title>
+    <link rel="stylesheet" href="assets/style/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+      <!--Đây là phần menu-->
+      <div id="menu" class="menu">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <ul class="menu-items">
+          <li><a href="project.html">Project</a></li>
+          <li><a href="groupdiary.html">Group-Diary</a></li>
+          <li>Contact Us</li>
+          <li>Locations</li>
+          <li><a href="login.html">Register / Login</a></li>
+          <li><a href="demo.html">Collection</a></li>
+        </ul>
+    </div>
 
 
-function toggleSearchBar(event) {
-    event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
-    const overlay = document.getElementById("overlay");
-    const searchBar = document.getElementById("searchBar");
 
-    if (overlay.style.display === "block") {
-        // Đóng thanh tìm kiếm
-        overlay.style.display = "none";
-        searchBar.style.display = "none";
-    } else {
-        // Mở thanh tìm kiếm
-        overlay.style.display = "block";
-        searchBar.style.display = "block";
-    }
-}
+    <div class="header">
+        <div class="announcement-bar___content">
+            <a href="#">Get free delivery when you spend over 30 dollars - SHOP NOW</a>
+        </div>
+        <div class="group-header">
+            <div class="icon_menu_hamburger">
+                <div class="icon_hamburger" onclick="toggleMenu()"><button title="Menu"><i class="bi bi-list"
+                            style="font-size: 24px; cursor: pointer;"></i></button></div>
+                <a href="index.html">
+                    <div class="image_logo" title="MamMamCake Bakery">
+                        <img src="assets/image/MamMamCake.webp"
+                            alt="logobakery">
+                    </div>
+                </a>
+            </div>
+            <div class="nav_bar">
+                <a href="#">
+                    <div class="instagram icon_noimportant" title="Instagram"><i class="bi bi-instagram" style="font-size:24px"></i></div>
+                </a>
+                <a href="#">
+                    <div class="twitter icon_noimportant" title="Twitter"><i class="fa fa-twitter" style="font-size:26px"></i></div>
+                </a>
+                <a href="#">
+                    <div class="facebook icon_noimportant" title="Facebook"><i class="fa fa-facebook-square" style="font-size:24px"></i>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="youtube icon_noimportant" title="Youtube"><i class="fa fa-youtube-square" style="font-size:24px"></i>
+                    </div>
+                </a>
+                <a href="#" onclick="toggleSearchBar(event)">
+                    <div class="search icon_important" title="Search">
+                        <button><i class="fa fa-search" style="font-size: 24px;"></i></button>
+                    </div>
+                </a>
 
-/* login */
-// Lưu trữ thông tin tài khoản (có thể sử dụng LocalStorage hoặc Cookie)
-const users = JSON.parse(localStorage.getItem('users')) || [];
+                <!-- Overlay làm mờ nền -->
+                <div class="overlay" id="overlay" onclick="toggleSearchBar(event)"></div>
 
-function showLogin() {
-  document.getElementById('login-form').classList.add('visible');
-  document.getElementById('forgot-password-form').classList.remove('visible');
-  document.getElementById('register-form').classList.remove('visible');
-}
+                <!-- Thanh tìm kiếm ẩn ban đầu -->
+                <div class="search-bar" id="searchBar">
+                    <input type="text" placeholder="Type to search...">
+                    <button onclick="toggleSearchBar(event)">Close</button>
+                </div>
 
-function showForgotPassword() {
-  document.getElementById('login-form').classList.remove('visible');
-  document.getElementById('forgot-password-form').classList.add('visible');
-  document.getElementById('register-form').classList.remove('visible');
-}
-
-function showRegister() {
-  document.getElementById('login-form').classList.remove('visible');
-  document.getElementById('forgot-password-form').classList.remove('visible');
-  document.getElementById('register-form').classList.add('visible');
-}
-
-
-// Xử lý đăng nhập
-function handleLogin(event) {
-    event.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    const user = users.find(user => user.email === email && user.password === password);
+                <a href="login.html">
+                    <div class="user icon_important"><button title="Login"><i class="fa fa-user-circle-o"
+                                style="font-size:24px"></i></button></div>
+                </a>
+                <a href="demo1.html">
+                    <div class="shop icon_important"><button title="Buy"><span class="glyphicon glyphicon-shopping-cart"
+                                style="font-size: 24px;"></span></button></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Login Section -->
+    <div class="login-container" id="login-form">
+        <h1>Login</h1>
+        <form onsubmit="handleLogin(event)">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" style="background-color: #ca7f5c;">Sign In</button>            
+            <div class="login-links">
+                <a href="#" onclick="showForgotPassword()">Forgot your password?</a> / <a href="#"
+                    onclick="showRegister()">Create account</a>
+            </div>
+        </form>
+    </div>
+    <div class="show-email" style="display: none;" id="show-email">
+        <div><h4>Email:</h4></div>
+        <div id="user-email"></div> <!-- Email sẽ hiển thị ở đây -->
+    </div>
+    <div class="dangxuat" style="display: none;" id="dangxuat">
+        <div><h4>Đăng Xuất:</h4></div>
+        <div class="nutdangxuat">
+            <button id="logout-btn" onclick="handleLogout()" class="btn btn-danger">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+        </div>
+    </div>
     
-    if (user) {
-      alert("Login successful!");
+    <!-- Forgot Password Section -->
+    <div class="login-container" id="forgot-password-form" style="display:none;">
+        <h1>Forgot Password</h1>
+        <form onsubmit="handleForgotPassword(event)">
+            <input type="email" id="forgot-email" placeholder="Enter your email" required>
+            <button type="submit">Submit</button>
+            <div class="login-links">
+                <a href="#" onclick="showLogin()">Back to Login</a>
+            </div>
+        </form>
+    </div>
 
-      // Lưu trạng thái đăng nhập và thông tin người dùng vào localStorage
-      sessionStorage.setItem('isLoggedIn', 'true');
-      sessionStorage.setItem('currentUser', JSON.stringify(user)); // Lưu thông tin người dùng đã đăng nhập
+    <!-- Register Section -->
+    <div class="login-container" id="register-form" style="display:none;">
+        <h1>Create Account</h1>
+        <form onsubmit="handleRegister(event)">
+            <input type="email" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            <button type="submit">Register</button>
+            <div class="login-links">
+                <a href="#" onclick="showLogin()">Back to Login</a>
+            </div>
+        </form>
+    </div>
 
-      // Lưu thông tin đơn hàng riêng biệt cho mỗi tài khoản
-      const userCart = getUserCart(user.email); // Lấy thông tin đơn hàng từ server hoặc database
-      sessionStorage.setItem('userCart', JSON.stringify(userCart));
+    <script src="assets/js/script.js"></script>
+</body>
 
-        displayUserCart(userCart);
-        displayUserEmail();
+<!-- Phần Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- About -->
+        <div class="footer-about">
+            <h3>ABOUT THE MAMMAM CAKE</h3>
+            <p>We’re an artisan Brighton bakery, with stores across Brighton, Hove and Worthing. Our team are dedicated
+                to making lovingly handcrafted food, using traditional methods with the finest ingredients and served by
+                people who care.</p>
+        </div>
 
-      // Hiển thị nút logout
-      document.getElementById('logout-btn').style.display = 'block';
-      document.getElementById('login-form').style.display = 'none';
-      document.getElementById('show-email').style.display = 'block';
+        <!-- Browse -->
+        <div class="footer-browse">
+            <h3>BROWSE THE MAMMAM CAKE</h3>
+            <div class="browse-links">
+                <a href="#">Shop</a>
+                <a href="#">The Milk Shed</a>
+                <a href="#">Wholesale</a>
+                <a href="#">Sustainability</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Cookies & Privacy Policy</a>
+                <a href="#">Venue Hire</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
 
-      // Chuyển hướng trang sau khi đăng nhập thành công
-      window.location.href = 'cart.html'; 
-  } else {
-      alert("Invalid credentials.");
-  }
-}
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+            <h3>NEWSLETTER</h3>
+            <p>Subscribe for store updates and discounts.</p>
+            <input type="email" placeholder="Email address">
+        </div>
+    </div>
+</footer>
 
-function getUserCart(email) {
-  const carts = JSON.parse(localStorage.getItem('carts')) || {};
-  
-  // Nếu chưa có giỏ hàng cho email, tạo giỏ hàng trống
-  if (!carts[email]) {
-      carts[email] = [];
-      localStorage.setItem('carts', JSON.stringify(carts));
-  }
-  
-  return carts[email]; // Trả về giỏ hàng của người dùng
-}
+<script src="assets/js/login.js"></script>
 
-
-
-function handleLogout() {
-
-  sessionStorage.clear();
-  // Xóa thông tin đăng nhập từ sessionStorage
-  sessionStorage.removeItem('isLoggedIn');
-  sessionStorage.removeItem('currentUser');
-  sessionStorage.removeItem('userCart'); // Nếu bạn lưu thông tin đơn hàng ở đây
-
-
-   // Ẩn nút logout
-   document.getElementById('logout-btn').style.display = 'none';
-   document.getElementById('login-form').style.display = 'block';
-
-   // Quay lại trang đăng nhập
-   window.location.replace('index.html');
-  
-}
-
-// xử lý đăng ký tài khoản
-function handleRegister(event) {
-  event.preventDefault();
-  const email = document.getElementById('register-email').value;
-  const password = document.getElementById('register-password').value;
-  const confirmPassword = document.getElementById('confirm-password').value;
-  const carts = JSON.parse(localStorage.getItem('carts')) || {};
-  carts[email] = []; // Gán giỏ hàng rỗng cho email
-  localStorage.setItem('carts', JSON.stringify(carts));
-
-
-  if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-  }
-
-  const existingUser = users.find(user => user.email === email);
-  if (existingUser) {
-      alert("Email is already registered.");
-      return;
-  }
-
-  const newUser = { email, password };
-  users.push(newUser);
-  localStorage.setItem('users', JSON.stringify(users));
-
-  alert("Account created successfully!");
-  showLogin();
-}
-
-function displayUserCart(cart) {
-  const cartContainer = document.getElementById('cart-container');
-  cartContainer.innerHTML = ''; // Xóa nội dung cũ của giỏ hàng
-
-  if (!cart || cart.length === 0) {
-    cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-  } else {
-      cart.forEach(item => {
-          const itemElement = document.createElement('div');
-          itemElement.classList.add('cart-item');
-          itemElement.innerHTML = `
-              <p>Item: ${item.item}</p>
-              <p>Quantity: ${item.quantity}</p>
-          `;
-          cartContainer.appendChild(itemElement);
-      });
-  }
-}
-
-// Hiển thị email khi người dùng đã đăng nhập
-function displayUserEmail() {
-  const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Lấy thông tin người dùng từ sessionStorage
-  const emailDiv = document.getElementById('user-email');
-  emailDiv.textContent = currentUser ? currentUser.email : "Không có thông tin người dùng";
-
-  if (currentUser && currentUser.email) {
-      // Hiển thị email trong phần tử
-      emailDiv.textContent = currentUser.email;
-  } else {
-      // Nếu không có email, ẩn phần hiển thị email
-      emailDiv.textContent = "Không có thông tin người dùng";
-  }
-}
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  checkLoginStatus();
-  displayUserEmail();
-  const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-  const user = JSON.parse(sessionStorage.getItem('currentUser'));
-  const userCart = JSON.parse(sessionStorage.getItem('userCart'));
-
-  if (isLoggedIn && user) {
-    displayUserEmail(); // Hiển thị email người dùng
-    if (userCart) {
-      displayUserCart(userCart); // Hiển thị giỏ hàng
-    }
-    console.log('User:', user);
-    console.log('User Cart:', userCart);
-  } else {
-    console.log('No user or cart data available');
-  }
-});
-
-
-function handleForgotPassword(event) {
-    event.preventDefault();
-    const email = document.getElementById('forgot-email').value;
-
-    const user = users.find(user => user.email === email);
-    if (user) {
-        alert("Password reset link sent to your email.");
-        // Gửi email hoặc thực hiện một số hành động khác
-    } else {
-        alert("Email not found.");
-    }
-}
-
-// Xử lý đăng ký tài khoản
-
-function updateUserCart(email, cart) {
-  const carts = JSON.parse(localStorage.getItem('carts')) || {};
-  carts[email] = cart; // Gán giỏ hàng mới cho email
-  localStorage.setItem('carts', JSON.stringify(carts)); // Lưu lại vào localStorage
-}
-
-function addToCart(item) {
-  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-  if (!currentUser) {
-      alert("Please log in to add items to your cart.");
-      return;
-  }
-
-  const email = currentUser.email;
-  const userCart = getUserCart(email);
-  
-  // Thêm sản phẩm mới vào giỏ hàng
-  userCart.push(item);
-  sessionStorage.setItem('userCart', JSON.stringify(userCart)); // Cập nhật sessionStorage
-  updateUserCart(email, userCart); // Cập nhật localStorage
-
-  displayUserCart(userCart);
-  alert("Item added to cart.");
-}
-
-
-
-function toggleMenu() {
-    var menu = document.getElementById("menu");
-    
-    // Nếu menu đang ẩn, set lại opacity để có thể hiển thị lại menu từ từ
-    if (!menu.classList.contains("show")) {
-      menu.style.opacity = 0; // Đảm bảo opacity là 0 khi bắt đầu ẩn
-      setTimeout(function() {
-        menu.classList.add("show"); // Thêm lớp show để menu trượt vào
-        menu.style.opacity = 1; // Đưa opacity về 1 khi menu xuất hiện
-      }, 10); // Đảm bảo thời gian chờ ngắn để hiệu ứng được kích hoạt
-    } else {
-      // Nếu menu đã hiển thị, chúng ta sẽ giảm opacity trước khi ẩn
-      menu.style.opacity = 0;
-      setTimeout(function() {
-        menu.classList.remove("show"); // Gỡ bỏ lớp show để menu biến mất
-      }, 500); // Đợi 0.5 giây trước khi ẩn hoàn toàn
-    }
-  }
-  
-  // Ẩn menu khi nhấn ra ngoài
-  document.addEventListener("click", function (event) {
-    var menu = document.getElementById("menu");
-    var iconHamburger = document.querySelector(".icon_hamburger");
-  
-    // Kiểm tra xem có phải nhấn ra ngoài menu không và nếu có thì ẩn menu
-    if (
-      menu.classList.contains("show") &&
-      !menu.contains(event.target) &&
-      !iconHamburger.contains(event.target)
-    ) {
-      menu.style.opacity = 0; // Tạo hiệu ứng mờ dần
-      setTimeout(function () {
-        menu.classList.remove("show"); // Ẩn menu sau khi opacity giảm dần
-      }, 500); // Chờ hiệu ứng opacity kết thúc trước khi ẩn menu
-    }
-  });
-  
-// Kiểm tra trạng thái đăng nhập
-function checkLoginStatus() {
-  const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-  const logoutButton = document.getElementById('logout-btn');
-  const loginForm = document.getElementById('login-form');
-  const showEmail = document.getElementById('show-email');
-  const dangxuat = document.getElementById('dangxuat');
-
-
-  if (isLoggedIn) {
-      logoutButton.style.display = 'block'; // Hiển thị nút
-      loginForm.style.display = 'none';
-      showEmail.style.display = 'block';
-      dangxuat.style.display = 'block';
-  } else {
-      logoutButton.style.display = 'none'; // Ẩn nút
-      loginForm.style.display = 'block';   // Hiển thị form đăng nhập
-  }
-}
-
+</html>
