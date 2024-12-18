@@ -36,6 +36,7 @@ function showForgotPassword() {
 function showRegister() {
   document.getElementById('login-form').style.display = 'none';
   document.getElementById('register-form').style.display = 'block';
+    document.getElementById('forgot-password-form').style.display = 'none';
 }
 
 
