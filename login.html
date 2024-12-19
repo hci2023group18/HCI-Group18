@@ -74,10 +74,28 @@
                     <button onclick="toggleSearchBar(event)">Close</button>
                 </div>
 
-                <a href="login.html">
-                    <div class="user icon_important"><button title="Login"><i class="fa fa-user-circle-o"
-                                style="font-size:24px"></i></button></div>
+                <!-- Phần login navbar -->
+                <div class="login-container-navbar" id="navbar-login-link" onclick="showLogin()">
+                    <form action="login_action.html" method="POST" class="login-form-navbar">
+                        <div class="login-field-navbar">
+                            <input type="text" name="email" placeholder="Email or Phone" required>
+                        </div>
+                        <div class="login-field-navbar">
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="login-actions-navbar">
+                            <button type="submit" class="login-btn-navbar">Log In</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Icon người dùng -->
+                <a href="login.html" id="navbar-user-link" onclick="showLogin()">
+                    <div class="user icon_important">
+                        <button><i class="fa fa-user-circle-o" style="font-size:24px"></i></button>
+                    </div>
                 </a>
+                
                 <a href="demo1.html">
                     <div class="shop icon_important"><button title="Buy"><span class="glyphicon glyphicon-shopping-cart"
                                 style="font-size: 24px;"></span></button></div>
@@ -124,19 +142,46 @@
     </div>
 
     <!-- Register Section -->
-    <div class="login-container" id="register-form" style="display:none;">
-        <h1>Create Account</h1>
-        <form onsubmit="handleRegister(event)">
-            <input type="email" id="register-email" placeholder="Email" required>
-            <input type="password" id="register-password" placeholder="Password" required>
-            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
-            <button type="submit">Register</button>
-            <div class="login-links">
-                <a href="#" onclick="showLogin()">Back to Login</a>
+    <div class="login-container-register" id="register-form" style="display:none;">
+        <div class="register-box">
+            <div class="register-left">
+                <div class="slogan">
+                    <p>Life Is Too Short To Skip Dessert</p>
+                </div>
+                <div class="register-img">
+                    <div class="image-container">
+                        <img src="assets/image/register1.png" alt="Image 1" class="image-item">
+                        <img src="assets/image/register2.png" alt="Image 2" class="image-item">
+                        <img src="assets/image/register3.png" alt="Image 3" class="image-item">
+                        <img src="assets/image/register4.png" alt="Image 4" class="image-item">
+                    </div>
+                </div>
             </div>
-        </form>
+            <div class="register-right">
+                <h1>Create Account</h1>
+                <form onsubmit="handleRegister(event)">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="text" id="full-name" placeholder="Full Name" required>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="tel" id="phone-number" placeholder="Phone Number" required>
+                    <div class="gender-group">
+                        <label>Gender:</label>
+                        <input type="radio" id="gender-male" name="gender" value="Male"><label
+                            for="gender-male">Male</label>
+                        <input type="radio" id="gender-female" name="gender" value="Female"><label
+                            for="gender-female">Female</label>
+                    </div>
+                    <input type="date" id="dob" placeholder="Date of Birth" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                    <button type="submit">Register</button>
+                    <div class="login-links">
+                        <a href="#" onclick="showLogin()">Back to Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
     <script src="assets/js/script.js"></script>
 </body>
 
