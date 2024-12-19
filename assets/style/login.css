@@ -119,7 +119,8 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
-    display: none; /* Ẩn overlay ban đầu */
+    display: none;
+    /* Ẩn overlay ban đầu */
 }
 
 /* Style cho thanh tìm kiếm */
@@ -134,8 +135,10 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    display: none; /* Ẩn thanh tìm kiếm ban đầu */
-    z-index: 11; /* Hiển thị trên overlay */
+    display: none;
+    /* Ẩn thanh tìm kiếm ban đầu */
+    z-index: 11;
+    /* Hiển thị trên overlay */
     text-align: center;
 }
 
@@ -162,7 +165,246 @@ body {
     background-color: #a56244;
 }
 
-/* phần login */
+.search-bar {
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.search-bar.hide {
+    transform: translateY(-10%);
+    opacity: 0;
+}
+
+/* Phần login navbar */
+.login-container-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: none;
+    width: auto;
+}
+
+.login-form-navbar {
+    display: flex;
+    flex-direction: row;
+    /* Dàn các trường nhập theo hàng ngang */
+    gap: 1rem;
+    width: auto;
+    /* Điều chỉnh chiều rộng của form */
+}
+
+.login-field-navbar input {
+    padding: 8px;
+    font-size: 14px;
+    width: 205px;
+    /* Điều chỉnh chiều rộng của input */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-field-navbar input:focus {
+    outline: none;
+    border-color: #ca7f5c;
+}
+
+.login-actions-navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.login-btn-navbar {
+    background-color: #ca7f5c;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn-navbar:hover {
+    background-color: #b46949;
+}
+
+
+
+/* Container for the Register Box */
+.register-box {
+    width: 100%;
+    max-width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Phần bên trái */
+.register-left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Căn giữa */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Slogan */
+.register-left .slogan {
+    font-size: 3.6rem;
+    font-weight: bold;
+    color: #be704c;
+    margin-bottom: 250px;
+}
+
+/* Phần hình ảnh bên trái */
+.register-left .register-img {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.register-left .register-img .image-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: relative;
+}
+
+.register-left .register-img .image-item {
+    width: 200px;
+    /* Chiều rộng ảnh */
+    height: 300px;
+    /* Chiều cao đồng đều cho tất cả ảnh */
+    object-fit: cover;
+    /* Giữ tỷ lệ ảnh nhưng không bị biến dạng */
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* So le chiều cao các ảnh */
+.register-left .register-img .image-item:nth-child(1) {
+    margin-top: -120px;
+    /* Đẩy ảnh 1 lên một chút */
+}
+
+.register-left .register-img .image-item:nth-child(2) {
+    margin-top: -230px;
+    /* Đẩy ảnh 2 xuống một chút */
+}
+
+.register-left .register-img .image-item:nth-child(3) {
+    margin-top: -180px;
+    /* Đẩy ảnh 3 lên một chút */
+}
+
+.register-left .register-img .image-item:nth-child(4) {
+    margin-top: -20px;
+    /* Đẩy ảnh 4 xuống một chút */
+}
+
+.register-right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-right {
+    background-color: #f9f9f9;
+    padding: 40px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    max-width: 649px;
+    margin-left: 20px;
+}
+
+.register-right h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.register-right form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-right input[type="text"],
+.register-right input[type="email"],
+.register-right input[type="tel"],
+.register-right input[type="password"],
+.register-right input[type="date"] {
+    margin-bottom: 1.5rem;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.register-right .gender-group {
+    margin-bottom: 1.5rem;
+}
+
+.register-right .gender-group label {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.register-right .gender-group input {
+    margin-right: 10px;
+}
+
+.register-right button {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ca7f5c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-right button:hover {
+    background-color: #a56244;
+}
+
+.register-right .login-links {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.register-right .login-links a {
+    color: #ca7f5c;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.register-right .login-links a:hover {
+    text-decoration: underline;
+}
+
+/* Layout adjustments for login */
 .login-container {
     display: flex;
     flex-direction: column;
@@ -171,6 +413,15 @@ body {
     max-width: 400px;
     text-align: center;
 }
+
+.login-container-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: auto;
+    text-align: center;
+}
+
 
 .login-container h1 {
     font-size: 2.5rem;
@@ -199,7 +450,7 @@ body {
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
-    background-color: #000;
+    background-color: #ca7f5c;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -207,7 +458,7 @@ body {
 }
 
 .login-container button:hover {
-    background-color: #333;
+    background-color: #a56244;
 }
 
 .login-links {
@@ -225,15 +476,11 @@ body {
     text-decoration: underline;
 }
 
-
 /* Cấu hình chung cho Footer */
 footer {
-    background-color: #f9f6f1; 
+    background-color: #f9f6f1;
     padding: 3rem 0;
     color: #333;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 
@@ -243,7 +490,8 @@ footer {
     justify-content: space-around;
     align-items: flex-start;
     gap: 2rem;
-    flex-wrap: wrap; /* Cho phép các phần tử trong footer xuống hàng khi cần */
+    flex-wrap: wrap;
+    /* Cho phép các phần tử trong footer xuống hàng khi cần */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -252,7 +500,8 @@ footer {
 .footer-about,
 .footer-browse,
 .footer-newsletter {
-    flex: 1 1 30%; /* Mỗi phần sẽ chiếm 30% chiều rộng */
+    flex: 1 1 30%;
+    /* Mỗi phần sẽ chiếm 30% chiều rộng */
     min-width: 200px;
 }
 
@@ -264,7 +513,8 @@ footer {
 }
 
 .footer-about p {
-    color: #555; /* Màu chữ đen sáng hơn */
+    color: #555;
+    /* Màu chữ đen sáng hơn */
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -278,18 +528,21 @@ footer {
 
 .footer-browse .browse-links {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Chia thành 2 cột */
+    grid-template-columns: 1fr 1fr;
+    /* Chia thành 2 cột */
     gap: 0.5rem 2rem;
 }
 
 .footer-browse a {
-    color: #555; /* Màu chữ đen sáng hơn */
+    color: #555;
+    /* Màu chữ đen sáng hơn */
     text-decoration: none;
     font-size: 1rem;
 }
 
 .footer-browse a:hover {
-    color: #ca7f5c; /* Màu gốc khi hover */
+    color: #ca7f5c;
+    /* Màu gốc khi hover */
     text-decoration: underline;
 }
 
@@ -302,7 +555,8 @@ footer {
 
 .footer-newsletter p {
     margin: 1rem 0;
-    color: #555; /* Màu chữ đen sáng hơn */
+    color: #555;
+    /* Màu chữ đen sáng hơn */
 }
 
 .footer-newsletter input[type="email"] {
@@ -312,52 +566,64 @@ footer {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
-    background-color: #f3f0e6; /* Màu nền thanh email (sáng hơn nền footer) */
+    background-color: #f3f0e6;
+    /* Màu nền thanh email (sáng hơn nền footer) */
     color: #444;
     transition: background-color 0.3s;
 }
 
 .footer-newsletter input[type="email"]:focus {
-    background-color: #ffffff; /* Màu trắng khi click vào */
+    background-color: #ffffff;
+    /* Màu trắng khi click vào */
     outline: none;
 }
 
 /* Điều chỉnh responsive để các cột thu nhỏ trên màn hình nhỏ */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column; /* Chuyển sang cột khi màn hình nhỏ */
+        flex-direction: column;
+        /* Chuyển sang cột khi màn hình nhỏ */
         text-align: center;
     }
 
     .footer-about,
     .footer-browse,
     .footer-newsletter {
-        flex: 1 1 100%; /* Mỗi phần chiếm 100% chiều rộng */
-        margin-bottom: 2rem; /* Tạo khoảng cách giữa các phần */
+        flex: 1 1 100%;
+        /* Mỗi phần chiếm 100% chiều rộng */
+        margin-bottom: 2rem;
+        /* Tạo khoảng cách giữa các phần */
     }
 
     .footer-browse .browse-links {
         justify-content: center;
     }
 }
+
 .menu {
     position: fixed;
     top: 0;
     left: -100%;
     width: 25%;
-    height: 100vh; 
+    height: 100vh;
     background-color: #18181b;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
     z-index: 99999;
-    opacity: 0; /* Độ mờ ban đầu là 0 */
-    transition: right 0.7s ease, opacity 0.7s ease; /* Thêm hiệu ứng chuyển động */
-  }
-  .menu.show {
-    left: 0; /* Đưa menu vào màn hình */
-    opacity: 1; /* Hiển thị menu với độ mờ hoàn toàn */
-  }
-  .search-bar {
+    opacity: 0;
+    /* Độ mờ ban đầu là 0 */
+    transition: right 0.7s ease, opacity 0.7s ease;
+    /* Thêm hiệu ứng chuyển động */
+}
+
+.menu.show {
+    left: 0;
+    /* Đưa menu vào màn hình */
+    opacity: 1;
+    /* Hiển thị menu với độ mờ hoàn toàn */
+}
+
+.search-bar {
     width: 100%;
     padding: 10px;
     margin-top: 2rem;
@@ -365,47 +631,52 @@ footer {
     border: 1px solid #ccc;
     border-radius: 25px;
     color: #343434;
-  }
-  .menu-items {
+}
+
+.menu-items {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .menu-items li {
+}
+
+.menu-items li {
     padding: 10px 0;
     cursor: pointer;
     color: white;
     font-size: 1.5rem;
     border-top: 1px solid #34343a;
     transition: color 0.3s;
-  }
-  .menu-items li:hover{
+}
+
+.menu-items li:hover {
     color: #c5c5c5;
-  }
-  .menu a{
+}
+
+.menu a {
     text-decoration: none;
     color: white;
-    text-decoration: none; /* Không có gạch dưới */
+    text-decoration: none;
+    /* Không có gạch dưới */
     transition: none;
-  }
-  .menu a:hover{
-      color: inherit; /* Giữ nguyên màu của liên kết khi hover */
-      text-decoration: none; /* Không có gạch dưới khi hover */
-  }
-  .btn-danger{
-    margin-top: 1.5rem;    
 }
-  .visible{
-    display: block;
-  }
-  .show-email, .dangxuat {
-    display: flex; /* Kích hoạt Flexbox */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    flex-direction: column; /* Xếp chồng các phần tử trong div */
-    height: 100px; /* Tạo chiều cao cố định cho dễ căn giữa */
-    text-align: center;
+
+.menu a:hover {
+    color: inherit;
+    /* Giữ nguyên màu của liên kết khi hover */
+    text-decoration: none;
+    /* Không có gạch dưới khi hover */
 }
-.nutdangxuat{
-    justify-items: center;
+
+@media (max-width: 768px) {
+    .menu {
+        width: 80%;
+    }
+
+    .menu-items li {
+        font-size: 1.2rem;
+    }
+
+    .search-bar {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
 }
