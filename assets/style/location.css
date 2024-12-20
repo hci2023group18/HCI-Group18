@@ -50,6 +50,72 @@ body {
     border-radius: 25px;
     color: #343434;
   }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 25%;
+    height: 100vh;
+    background-color: #18181b;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 99999;
+    opacity: 0;
+    /* Độ mờ ban đầu là 0 */
+    transition: right 0.7s ease, opacity 0.7s ease;
+    /* Thêm hiệu ứng chuyển động */
+}
+
+.menu.show {
+    left: 0;
+    /* Đưa menu vào màn hình */
+    opacity: 1;
+    /* Hiển thị menu với độ mờ hoàn toàn */
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    color: #343434;
+}
+
+.menu-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-items li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+    border-top: 1px solid #34343a;
+    transition: color 0.3s;
+}
+
+.menu-items li:hover {
+    color: #c5c5c5;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    text-decoration: none;
+    /* Không có gạch dưới */
+    transition: none;
+}
+
+.menu a:hover {
+    color: inherit;
+    /* Giữ nguyên màu của liên kết khi hover */
+    text-decoration: none;
+    /* Không có gạch dưới khi hover */
+}
+
 
 .image-gallery {
     position: relative;
@@ -189,302 +255,62 @@ body {
     opacity: 0;
 }
 
-/* Phần login navbar */
-.login-container-navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    display: none;
-    width: auto;
-}
-
-.login-form-navbar {
-    display: flex;
-    flex-direction: row;
-    /* Dàn các trường nhập theo hàng ngang */
-    gap: 1rem;
-    width: auto;
-    /* Điều chỉnh chiều rộng của form */
-}
-
-.login-field-navbar input {
-    padding: 8px;
-    font-size: 14px;
-    width: 205px;
-    /* Điều chỉnh chiều rộng của input */
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.login-field-navbar input:focus {
-    outline: none;
-    border-color: #ca7f5c;
-}
-
-.login-actions-navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.login-btn-navbar {
-    background-color: #ca7f5c;
-    color: white;
-    padding: 8px 16px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-btn-navbar:hover {
-    background-color: #b46949;
-}
-
-
-
-/* Container for the Register Box */
-.register-box {
-    width: 100%;
-    max-width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-/* Phần bên trái */
-.register-left {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Căn giữa */
+/*location*/
+main {
     text-align: center;
     padding: 20px;
 }
 
-/* Slogan */
-.register-left .slogan {
-    font-size: 3.6rem;
-    font-weight: bold;
-    color: #be704c;
-    margin-bottom: 250px;
+#search-container {
+    margin-bottom: 20px;
 }
 
-/* Phần hình ảnh bên trái */
-.register-left .register-img {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.register-left .register-img .image-container {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    position: relative;
-}
-
-.register-left .register-img .image-item {
-    width: 200px;
-    /* Chiều rộng ảnh */
-    height: 300px;
-    /* Chiều cao đồng đều cho tất cả ảnh */
-    object-fit: cover;
-    /* Giữ tỷ lệ ảnh nhưng không bị biến dạng */
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* So le chiều cao các ảnh */
-.register-left .register-img .image-item:nth-child(1) {
-    margin-top: -120px;
-    /* Đẩy ảnh 1 lên một chút */
-}
-
-.register-left .register-img .image-item:nth-child(2) {
-    margin-top: -230px;
-    /* Đẩy ảnh 2 xuống một chút */
-}
-
-.register-left .register-img .image-item:nth-child(3) {
-    margin-top: -180px;
-    /* Đẩy ảnh 3 lên một chút */
-}
-
-.register-left .register-img .image-item:nth-child(4) {
-    margin-top: -20px;
-    /* Đẩy ảnh 4 xuống một chút */
-}
-
-.register-right {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.register-right {
-    background-color: #f9f9f9;
-    padding: 40px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    max-width: 649px;
-    margin-left: 20px;
-}
-
-.register-right h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.register-right form {
-    display: flex;
-    flex-direction: column;
-}
-
-.register-right input[type="text"],
-.register-right input[type="email"],
-.register-right input[type="tel"],
-.register-right input[type="password"],
-.register-right input[type="date"] {
-    margin-bottom: 1.5rem;
-    padding: 15px;
+#location-input {
+    width: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 1rem;
 }
 
-.register-right .gender-group {
-    margin-bottom: 1.5rem;
-}
-
-.register-right .gender-group label {
-    font-size: 1rem;
-    margin-right: 10px;
-}
-
-.register-right .gender-group input {
-    margin-right: 10px;
-}
-
-.register-right button {
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: #ca7f5c;
+#search-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.register-right button:hover {
-    background-color: #a56244;
+#search-btn:hover {
+    background-color: #0056b3;
 }
 
-.register-right .login-links {
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.register-right .login-links a {
-    color: #ca7f5c;
-    text-decoration: none;
-    margin: 0 0.5rem;
-}
-
-.register-right .login-links a:hover {
-    text-decoration: underline;
-}
-
-/* Layout adjustments for login */
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px auto;
-    max-width: 400px;
-    text-align: center;
-}
-
-.login-container-register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: auto;
-    text-align: center;
-}
-
-
-.login-container h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-}
-
-.login-container form {
+iframe {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.login-container input[type="email"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.login-container button {
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: #ca7f5c;
+    height: 450px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.login-container button:hover {
-    background-color: #a56244;
+#map-container {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
 }
 
-.login-links {
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
+#map {
+    width: 100%;
+    height: 100%;
 }
 
-.login-links a {
-    color: #ca7f5c;
-    text-decoration: none;
-    margin: 0 0.5rem;
+#store-list {
+    margin-top: 20px;
 }
 
-.login-links a:hover {
-    text-decoration: underline;
+#stores {
+    list-style: none;
+    padding: 0;
 }
+
 
 /* Cấu hình chung cho Footer */
 footer {
@@ -626,12 +452,6 @@ footer {
     /* Thêm hiệu ứng chuyển động */
 }
 
-.menu.show {
-    left: 0;
-    /* Đưa menu vào màn hình */
-    opacity: 1;
-    /* Hiển thị menu với độ mờ hoàn toàn */
-}
 
 .search-bar {
     width: 100%;
@@ -643,38 +463,7 @@ footer {
     color: #343434;
 }
 
-.menu-items {
-    list-style-type: none;
-    padding: 0;
-}
 
-.menu-items li {
-    padding: 10px 0;
-    cursor: pointer;
-    color: white;
-    font-size: 1.5rem;
-    border-top: 1px solid #34343a;
-    transition: color 0.3s;
-}
-
-.menu-items li:hover {
-    color: #c5c5c5;
-}
-
-.menu a {
-    text-decoration: none;
-    color: white;
-    text-decoration: none;
-    /* Không có gạch dưới */
-    transition: none;
-}
-
-.menu a:hover {
-    color: inherit;
-    /* Giữ nguyên màu của liên kết khi hover */
-    text-decoration: none;
-    /* Không có gạch dưới khi hover */
-}
 
 @media (max-width: 768px) {
     .menu {
@@ -689,7 +478,4 @@ footer {
         margin-top: 1rem;
         margin-bottom: 2rem;
     }
-}
-.show-email, .dangxuat{
-    margin-left: 10rem;
 }
