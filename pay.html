@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All</title>
+    <link rel="stylesheet" href="assets/style/all.css">
+    <link rel="stylesheet" href="assets/style/pay.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <!--Đây là phần menu-->
+    <div id="menu" class="menu">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <ul class="menu-items">
+          <li>Contact Us</li>
+          <li>Locations</li>
+          <li>Register / Login</li>
+          <li>Colection</li>
+          <li>Introduction</li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="announcement-bar___content">
+          <a href="demo.html">Get free delivery when you spend over 30 dollars - SHOP NOW</a>
+        </div>
+        <div class="group-header">
+          <div class="icon_menu_hamburger">
+            <div class="icon_hamburger" onclick="toggleMenu()" title="Menu"><button><i class="bi bi-list"
+                  style="font-size: 24px; cursor: pointer;"></i></button></div>
+            <a href="#">
+              <div class="image_logo" title="MamMam Cake Bakery"><img
+                  src="assets/image/MamMamCake.webp"
+                  alt="logobakery"></div>
+            </a>
+          </div>
+          <div class="nav_bar">
+            <a href="#">
+              <div class="instagram icon_noimportant" title="Instagram"><i class="bi bi-instagram" style="font-size:24px"></i></div>
+            </a>
+            <a href="#">
+              <div class="twitter icon_noimportant" title="Twitter"><i class="fa fa-twitter" style="font-size:26px"></i></div>
+            </a>
+            <a href="#">
+              <div class="facebook icon_noimportant" title="Facebook"><i class="fa fa-facebook-square" style="font-size:24px"></i></div>
+            </a>
+            <a href="#">
+              <div class="youtube icon_noimportant" title="Youtube"><i class="fa fa-youtube-square" style="font-size:24px"></i></div>
+            </a>
+    
+    
+            <a href="#" onclick="toggleSearchBar(event)">
+              <div class="search icon_important" title="Search"><button><i class="fa fa-search" style="font-size: 24px;"></i></button>
+              </div>
+            </a>
+             <!-- Thanh tìm kiếm ẩn ban đầu -->
+             <div class="search-bar" id="searchBar">
+                 <input type="text" placeholder="Type to search...">
+                 <button onclick="toggleSearchBar(event)">Close</button>
+             </div>
+    
+    
+            <a href="">
+              <div class="user icon_important" title="Login User"><button><i class="fa fa-user-circle-o" style="font-size:24px"></i></button>
+              </div>
+            </a>
+            <a href="">
+              <div class="shop icon_important" title="Buy"><button><span class="glyphicon glyphicon-shopping-cart"
+                    style="font-size: 24px;"></span></button></div>
+            </a>
+            <a href="">
+                  <!-- Nút Giỏ hàng -->
+              <div class="cart-icon">
+                <i title="Shopping cart" class="fa fa-shopping-bag" style="font-size: 24px;"></i>
+                <div class="badge" id="icon-count">
+                  0
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="left">
+          <p>Express checkout</p>
+          <div class="chosepay">
+            <button style="background-color: rgb(239, 35, 35); color: rgb(242, 249, 255); width: 200px;">Shoppee Pay</button>
+            <button style="background-color: rgb(16, 16, 223); color: rgb(242, 249, 255);width: 200px;">Zalo Pay</button>
+          </div>
+          <p>OR</p>
+          <p><b>Delivery</b></p>
+          <div class="delivery">
+            <p>Chọn quốc gia</p>
+            <div class="option">
+              <select name="form-select" id="nation">
+                <option value="VN">Viet Nam</option>
+              </select>
+            </div>
+            <p>Nhập first name</p>
+            <div class="input-name">
+              <input type="text" placeholder="Nhập first Name" style="padding: 5px;">
+            </div>
+            <p>Nhập second name</p>
+            <div class="input-name">
+              <input type="text" placeholder="Nhập second name" style="padding: 5px;">
+            </div>
+            <p>Nhập địa chỉ giao hàng</p>
+            <div class="input-house">
+              <input type="text" placeholder="Nhập địa chỉ giao hàng" style="padding: 5px;">
+            </div>
+            <p>Nhập thành phố</p>
+            <div class="input-city">
+              <input type="text" placeholder="Nhập thành phố" style="padding: 5px;">
+            </div>
+            <p>Nhập số điện thoại</p>
+            <div class="input-sdt">
+              <input type="text" placeholder="Nhập số điện thoại" style="padding: 5px;">
+            </div>
+            <a href="#">Save</a>
+          </div>
+          <p><b>Payment</b></p>
+          <div class="payment">
+            <div class="card" style="width: 100%;">
+              <div><p>Credit</p></div>
+              <div><img src="https://icolor.vn/wp-content/uploads/2024/08/logo-visa2.png" alt="" style="width: 40px; "></div>
+            </div>
+            <input type="password" placeholder="Card number" style="margin: 8px 0px; width: 100%;">
+            <div class="dayandcode" style="width: 100%;">
+            <div><input type="text" placeholder="Expiration date (MM/YY)" style="width: 100%;"></div>
+            <div><input type="text" placeholder="Security code" style="width: 100%;"> </div>
+          </div>
+          <input type="text" placeholder="Name on card" style="width: 100%;">
+          <div class="checkboxandp">
+              <div><input type="checkbox" style="height: 20px;"></div>
+              <div><p>Use shopping address as billing address</p></div>
+          </div>
+        </div>
+          <p><b>Remember me</b></p>
+          <div class="checkboxandp">
+            <div><input type="checkbox" style="height: 20px;"></div>
+            <div><p>Save my infor mation for a faster checkout with a Shop account</p></div>
+        </div>
+          
+          <button id="pay-now-button">
+            Pay Now
+          </button>
+
+          <div id="success-message" class="hidden">
+            <h2>Giao dịch thành công!</h2>
+            <p>Cảm ơn bạn đã thanh toán.</p>
+          </div>
+        </div>
+        <div class="right">
+          <div id="inforcake" class="infor">
+
+          </div>
+          <div class="discount">
+            <input type="text" placeholder="Discount code or gift card">
+            <button>Apply</button>
+          </div>
+          <div class="shipping"> 
+            <p>Shipping</p>
+            <div class="ship">
+
+            </div>
+          </div>
+          <div class="total">
+            <b style="font-size: 15px;">Total</b>
+            <div id="total-price">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="assets/js/all.js"></script>
+      <script src="assets/js/pay.js"></script>
+      
+</body>
+</html>
