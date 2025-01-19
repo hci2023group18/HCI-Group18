@@ -1,0 +1,289 @@
+.announcement-bar___content {
+    background-color: #ca7f5c;
+    text-align: center;
+    color: #ffffff;
+    padding: 1rem;
+  }
+  .announcement-bar___content a {
+    text-decoration: none; 
+    color: inherit; 
+    font-size: 1rem;
+  }
+  .announcement-bar___content a:active {
+    text-decoration: none;
+    color: inherit; 
+  }
+  
+  .announcement-bar___content a:hover {
+    text-decoration: none;
+    color: inherit; 
+  }
+  body{
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+  }
+  .group-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+  }
+  .header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  }
+  .image-gallery {
+  position: relative;
+  margin-top: 20px;
+  z-index: 5;
+  }
+  .image_logo img{
+    width: 8rem;
+    height: 7rem;
+  }
+  .nav_bar{
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+  }
+  .icon_menu_hamburger{
+    display: flex;
+    gap: 3rem;
+  }
+  .nav_bar{
+    padding-top: 2.4rem;
+    gap: 3rem;
+  }
+  .image_logo{
+    padding: 0;
+  }
+  .icon_hamburger{
+    padding-top: 2.4rem;
+  }
+  .icon_hamburger button{
+    border: none;
+    background-color: #ffffff;
+  }
+  .icon_hamburger button:hover{
+    background-color: rgba(203, 203, 203, 0.5);
+    border-radius: 50%;
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
+  }
+  .nav_bar a{
+    color: inherit;
+  }
+  .icon_important button{
+    border: none;
+    background-color: #ffffff;
+    height: 4rem;
+    width: 4rem;
+  }
+  .icon_important button:hover{
+    background-color: rgba(203, 203, 203, 0.5);
+    border-radius: 50%;
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
+  }
+  .icon_noimportant{
+    padding-top: 0.8rem;
+  }
+  .footer {
+    background-color: #f6f4ef;
+    padding: 40px 20px;
+    color: #333;
+    font-family: 'Nunito', sans-serif;
+    
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+  }
+  
+  .footer-section h2 {
+    font-weight: bold;
+    color: #a57c68;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section p, .footer-section ul {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #a57c68;
+  }
+  
+  .footer-section input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  .social-links {
+    margin: 10px 0;
+  }
+  
+  .social-links a {
+    color: #333;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .social-links a:hover {
+    color: #a57c68;
+  }
+  
+  .footer-bottom p {
+    font-size: 12px;
+    color: #666;
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 25%;
+    height: 100vh; 
+    background-color: #18181b;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 99999;
+    opacity: 0; /* Độ mờ ban đầu là 0 */
+    transition: right 0.7s ease, opacity 0.7s ease; /* Thêm hiệu ứng chuyển động */
+  }
+  .menu.show {
+    left: 0; /* Đưa menu vào màn hình */
+    opacity: 1; /* Hiển thị menu với độ mờ hoàn toàn */
+  }
+  .search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    color: #343434;
+  }
+  .menu-items {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu-items li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+    border-top: 1px solid #34343a;
+    transition: color 0.3s;
+  }
+  .menu-items li:hover{
+    color: #c5c5c5;
+  }
+  .menu a{
+    text-decoration: none;
+    color: white;
+    text-decoration: none; /* Không có gạch dưới */
+    transition: none;
+  }
+  .menu a:hover{
+      color: inherit; /* Giữ nguyên màu của liên kết khi hover */
+      text-decoration: none; /* Không có gạch dưới khi hover */
+  }
+  /* Style cho thanh tìm kiếm */
+  .search-bar {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 500px;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Ẩn thanh tìm kiếm ban đầu */
+    z-index: 11; /* Hiển thị trên overlay */
+    text-align: center;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 80%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .search-bar button {
+    padding: 0.5rem 1rem;
+    background-color: #ca7f5c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .search-bar button:hover {
+    background-color: #a56244;
+  }
+  .cart-icon{
+    margin-top: 0.6rem;
+  }
+  .cart-panel button:hover {
+    background-color: #a56244;
+  }
+  button a {
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: inherit; /* Đảm bảo màu văn bản kế thừa từ button */
+  }
+  button a:hover {
+    color: #fff;
+    text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+  }
+  .badge {
+    position: absolute;
+    top: 8rem;
+    right: 2.5rem;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 7px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
