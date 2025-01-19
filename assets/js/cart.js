@@ -147,6 +147,17 @@ if (checkboxes2.length === 0) {
  // Hiển thị thông báo thành công
  alert("Đặt hàng thành công!");
 
+ window.location.href = 'pay.html'; 
+
+  // Hiển thị các sản phẩm đã chọn vào thẻ div .inforcake
+  const inforcakeDiv = document.querySelector('.inforcake');
+  inforcakeDiv.innerHTML = '';  // Xóa nội dung cũ trong .inforcake
+
+  selectedItems.forEach(function (product) {
+    const productInfo = document.createElement('p');
+    productInfo.textContent = `${product.name} - ${product.size} - £${product.totalPrice.toFixed(2)}`;
+    inforcakeDiv.appendChild(productInfo);
+  });
  // Cập nhật lại giao diện giỏ hàng (nếu bạn không tải lại trang)
  renderCart(updatedCart);
 
